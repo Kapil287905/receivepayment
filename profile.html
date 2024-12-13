@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>ASAPPay</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->	
+	<link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+<!--===============================================================================================-->	
+</head>
+<body class="dashboard dashboard_1">
+	<div class="full_container">
+	   <div class="inner_container">
+		  <!-- Sidebar  -->
+		  <nav id="sidebar">
+			 <div class="sidebar_blog_2">
+                <ul class="list-unstyled components">
+                    <li class="active">
+                        <a href="Home.html"><i class="fa fa-dashboard yellow_color"></i> <span>Dashboard</span></a>
+                    </li>
+					<li>
+						<a href="Account.html"><i class="fa fa-users red_color"></i> <span>Account</span></a>
+				    </li>
+                    <li>
+                        <a href="receive.html"><i class="fa fa-money orange_color"></i> <span>Receive</span></a>
+                    </li>
+                    <li>
+						<a href="profile.html"><i class="fa fa-user purple_color2"></i> <span>Profile</span></a>
+					</li>				   
+                </ul>
+			 </div>
+		  </nav>
+		  <!-- end sidebar -->
+		  <!-- right content -->
+		  <div id="content">
+			 <!-- topbar -->
+			 <div class="topbar">
+				<nav class="navbar navbar-expand-lg navbar-light">
+				   <div class="full"> 
+					  <button type="button" id="sidebarCollapse" class="sidebar_toggle"><i class="fa fa-bars"></i></button>
+					  <div class="logo_section">
+						<a href="index.html"><h1 class="text-white p-2">Asappay</h1></a>
+					 </div>                      
+					  <div class="right_topbar">
+						 <div class="icon_info">							
+							<ul class="user_profile_dd">
+							   <li>
+								  <a class="dropdown-toggle" data-toggle="dropdown"><img class="img-responsive rounded-circle" src="images/user_img.png" alt="#" /><span class="name_user">John David</span></a>
+								  <div class="dropdown-menu">
+									 <a class="dropdown-item" href="profile.html">My Profile</a>
+									 <a class="dropdown-item" href="settings.html">Settings</a>
+									 <a class="dropdown-item" href="help.html">Help</a>
+									 <a class="dropdown-item" href="#"><span>Log Out</span> <i class="fa fa-sign-out"></i></a>
+								  </div>
+							   </li>
+							</ul>
+						 </div>
+					  </div>
+				   </div>
+				</nav>
+			 </div>
+			 <!-- end topbar -->
+			 <!-- dashboard inner -->
+			 <div class="midde_cont">
+				<div class="container-fluid">
+				   <div class="row column_title">
+					  <div class="col-md-12">
+						 <div class="page_title">
+							<h2>Profile</h2>
+						 </div>
+					  </div>
+				   </div>
+				   <!-- row -->
+                   <div class="row column1">
+                    <div class="col-md-2"></div>
+                    <div class="col-md-8">
+                       <div class="white_shd full margin_bottom_30">
+                          <div class="full graph_head">
+                             <div class="heading1 margin_0">
+                                <h2>User profile</h2>
+                             </div>
+                          </div>
+                          <div class="full price_table padding_infor_info">
+                             <div class="row">
+                                <!-- user profile section --> 
+                                <!-- profile image -->
+                                <div class="col-lg-12">
+                                   <div class="full dis_flex center_text">
+                                      <div class="profile_img"><img width="180" class="rounded-circle" src="images/user_img.png" alt="#" /></div>
+                                      <div class="profile_contant">
+                                         <div class="contact_inner">
+                                            <h3>John Smith</h3>
+                                            <p><strong>About: </strong>Frontend Developer</p>
+                                            <ul class="list-unstyled">
+                                               <li><i class="fa fa-envelope-o"></i> : test@gmail.com</li>
+                                               <li><i class="fa fa-phone"></i> : 987 654 3210</li>
+                                            </ul>
+                                         </div>                                         
+                                      </div>
+                                   </div>                                   
+                                </div>
+                             </div>
+                          </div>
+                       </div>                              
+                    </div>
+                    <div class="col-md-2"></div>                        
+                 </div>
+              <!-- end row -->				   				   				   
+				</div>                  
+			 <!-- end dashboard inner -->
+		  </div>
+	   </div>
+	</div>
+	<script src="js/jquery.min.js"></script>
+	<script src="js/bootstrap.js"></script>
+	 <!-- nice scrollbar -->
+	 <script src="js/perfect-scrollbar.min.js"></script>
+	 <script>
+		var ps = new PerfectScrollbar('#sidebar');
+	 </script>
+	 <!-- custom js -->
+	 <script src="js/custom.js"></script>
+ </body>
+</html>

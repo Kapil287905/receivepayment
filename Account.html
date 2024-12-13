@@ -12,6 +12,8 @@
 		<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
 	<!--===============================================================================================-->
 		<link rel="stylesheet" type="text/css" href="css/main.css">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="css/select2.css">
 	<!--===============================================================================================-->	
 	</head>
 	<body class="dashboard dashboard_1">
@@ -24,9 +26,9 @@
 						   <li class="active">
 							   <a href="Home.html"><i class="fa fa-dashboard yellow_color"></i> <span>Dashboard</span></a>
 						   </li>
-						   <li>
-								<a href="Account.html"><i class="fa fa-users red_color"></i> <span>Account</span></a>
-						   </li>
+                           <li>
+                                <a href="Account.html"><i class="fa fa-users red_color"></i> <span>Account</span></a>
+                           </li>
 						   <li>
 							   <a href="receive.html"><i class="fa fa-money orange_color"></i> <span>Receive</span></a>
 						   </li>
@@ -72,65 +74,89 @@
 							<div class="row column_title">
 								<div class="col-md-12">
 									<div class="page_title">
-										<h2>Dashboard</h2>
+										<h2>Receve account</h2>
 									</div>
 								</div>
 							</div>
 							<!-- row -->
 							<div class="row column1">
-								<div class="col-md-12">
+								<div class="col-md-6">
 								   <div class="white_shd full margin_bottom_30">
 									  <div class="full graph_head">
 										 <div class="heading1 margin_0">
-											<h2>Transaction</h2>
+											<h2>create Account Single</h2>
 										 </div>
 									  </div>
 									  <div class="full price_table padding_infor_info">
 										 <div class="row">
 											<div class="col-lg-12">
-											   <div class="table-responsive-sm">
-												  <table class="table table-striped projects">
-													 <thead class="thead-dark">
-														<tr>
-														   <th style="width: 2%">No</th>
-														   <th style="width: 20%">Status</th>
-														   <th style="width: 78%">Client Name</th>														   
-														</tr>
-													 </thead>
-													 <tbody>
-														<tr>
-														   <td>1</td>
-														   <td>
-																<button type="button" class="btn btn-success btn-xs">Success</button>
-														 	</td>
-														   <td>
-															  <a>XYZ</a>
-														   </td> 
-														</tr>
+												<form class="custom-form validate-form" action="Home.html"  method="get" role="form">
+												
+													<div class="wrap-input100 validate-input">
+														<input class="input100"  id="exampleInputEmail" type="text" placeholder="Name"  aria-describedby="nameHelp" required>
+														<span class="focus-input100"></span>
+														<span class="symbol-input100">
+															<i class="fa fa-user" aria-hidden="true"></i>
+														</span>
+													</div>
 
-														<tr>
-															<td>2</td>
-															<td>
-																 <button type="button" class="btn btn-success btn-xs">Success</button>
-															  </td>
-															<td>
-															   <a>XYZ</a>
-															</td> 
-														 </tr>
+													<div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
+														<input class="input100"  id="exampleInputEmail" type="email" placeholder="Email"  aria-describedby="emailHelp" required>
+														<span class="focus-input100"></span>
+														<span class="symbol-input100">
+															<i class="fa fa-envelope" aria-hidden="true"></i>
+														</span>
+													</div>
 
-														 <tr>
-															<td>3</td>
-															<td>
-																 <button type="button" class="btn btn-success btn-xs">Success</button>
-															  </td>
-															<td>
-															   <a>XYZ</a>
-															</td> 
-														 </tr>
-													 
-													 </tbody>
-												  </table>
-											   </div>
+                                                    <div class="wrap-input100 validate-input">
+														<input class="input100" id="exampleInputEmail" type="number" placeholder="Phone"  aria-describedby="emailHelp" required>
+														<span class="focus-input100"></span>
+														<span class="symbol-input100">
+															<i class="fa fa-phone" aria-hidden="true"></i>
+														</span>
+													</div>
+
+													<div class="container-login100-form-btn">
+														<button type="submit" class="login100-form-btn">
+															Create
+														</button>
+													</div>																
+													<br class="clearfix"/>
+													
+												</form>
+											</div>
+										 </div>
+									  </div>
+								   </div>
+								</div>
+                                <div class="col-md-6">
+								   <div class="white_shd full margin_bottom_30">
+									  <div class="full graph_head">
+										 <div class="heading1 margin_0">
+											<h2>create Account Bulk</h2>
+										 </div>
+									  </div>
+									  <div class="full price_table padding_infor_info">
+										 <div class="row">
+											<div class="col-lg-12">
+												<form class="custom-form validate-form" action="Home.html"  method="get" role="form">
+												
+													<div class="wrap-input100 validate-input">
+														<input class="input100"  id="exampleInputfile" type="file" placeholder="Browser file">
+														<span class="focus-input100"></span>
+														<span class="symbol-input100">
+															<i class="fa fa-user" aria-hidden="true"></i>
+														</span>
+													</div>
+
+													<div class="container-login100-form-btn">
+														<button type="submit" class="login100-form-btn">
+															Create
+														</button>
+													</div>																
+													<br class="clearfix"/>
+													
+												</form>
 											</div>
 										 </div>
 									  </div>
@@ -148,8 +174,13 @@
 		<script src="js/bootstrap.js"></script>
 		<!-- nice scrollbar -->
 		<script src="js/perfect-scrollbar.min.js"></script>
+		<!--Select2 js-->
+		<script src="js/select2.js"></script>
 		<script>
 			var ps = new PerfectScrollbar('#sidebar');
+			$(".js-example-responsive").select2({
+				width: 'resolve' // need to override the changed default
+			});
 		</script>
 		<!-- custom js -->
 		<script src="js/custom.js"></script>
