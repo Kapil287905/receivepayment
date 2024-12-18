@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invoice</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .invoice-container {
+            max-width: 800px;
+            margin: 20px auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid #333;
+            padding-bottom: 10px;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+        .header .company-details {
+            text-align: right;
+        }
+        .section {
+            margin: 20px 0;
+        }
+        .section h2 {
+            margin: 0 0 10px;
+            font-size: 18px;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 5px;
+        }
+        .details, .items {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .details td, .items th, .items td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+        .items th {
+            background-color: #f9f9f9;
+        }
+        .total {
+            text-align: right;
+            font-size: 18px;
+            margin-top: 20px;
+        }
+        .payment-section {
+            margin-top: 30px;
+        }
+        .payment-methods ul {
+            list-style: none;
+            padding: 0;
+        }
+        .payment-methods li {
+            margin: 5px 0;
+        }
+        .footer {
+            text-align: center;
+            font-size: 12px;
+            color: #777;
+            margin-top: 20px;
+        }
+        .payment-button {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #28a745;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            text-align: center;
+        }
+        .payment-button:hover {
+            background-color: #218838;
+        }
+        .payment-method-selector {
+            margin: 10px 0;
+        }
+        .payment-method-selector select {
+            padding: 10px;
+            font-size: 16px;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="invoice-container">
+        <div class="header">
+            <div class="company-details">
+                <h1>Company Name</h1>
+                <p>123 Business St.<br>City, State, ZIP<br>Email: company@example.com<br>Phone: (123) 456-7890</p>
+            </div>
+            <div>
+                <h2>Invoice</h2>
+                <p>Invoice #: 001<br>Date: YYYY-MM-DD<br>Due Date: YYYY-MM-DD</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Client Details</h2>
+            <table class="details">
+                <tr>
+                    <td><strong>Client Name:</strong> John Doe</td>
+                    <td><strong>Address:</strong> 456 Client Rd., City, State, ZIP</td>
+                </tr>
+                <tr>
+                    <td><strong>Email:</strong> client@example.com</td>
+                    <td><strong>Phone:</strong> (987) 654-3210</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="section">
+            <h2>Invoice Items</h2>
+            <table class="items">
+                <thead>
+                    <tr>
+                        <th>Description</th>
+                        <th>Quantity</th>
+                        <th>Unit Price</th>
+                        <th>Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Service/Product 1</td>
+                        <td>1</td>
+                        <td>$100.00</td>
+                        <td>$100.00</td>
+                    </tr>
+                    <tr>
+                        <td>Service/Product 2</td>
+                        <td>2</td>
+                        <td>$50.00</td>
+                        <td>$100.00</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="total">
+            <strong>Total: $200.00</strong>
+        </div>
+
+        <div class="payment-section">            
+            <a href="paymethod.html" class="payment-button" onclick="processPayment()" target="_blank">Pay Now</a>
+        </div>
+
+        <div class="footer">
+            <p>Thank you for your business! Please contact us if you have any questions about this invoice.</p>
+        </div>
+    </div>
+
+    <script>
+        function processPayment() {
+            const paymentMethod = document.getElementById('payment-method').value;
+            alert('You selected: ' + paymentMethod + '\nProceeding to payment gateway.');
+            // Add your payment gateway logic here based on the selected payment method.
+        }
+    </script>
+</body>
+</html>

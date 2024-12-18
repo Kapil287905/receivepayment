@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Send Message on WhatsApp</title>
+  </head>
+  <body>
+    <!-- Button to Send Message -->
+    <button onclick="sendWhatsAppMessage()">Send WhatsApp Message</button>
+
+    <script>
+      function sendWhatsAppMessage() {
+        // Specify the phone number (include country code, e.g., 91 for India)
+        const phoneNumber = "919920201937"; // Replace with the target mobile number
+
+        // Custom message
+        const message = encodeURIComponent(
+          "link: https://kapil287905.github.io/receivepayment/paymentlink.html?"
+        );
+
+        // WhatsApp URL for sending a message to a specific number
+        const whatsappUrl = `http://api.textmebot.com/send.php?recipient=${phoneNumber}&apikey=mvLPE78avsNX&text=${message}`;
+
+        // Open WhatsApp in a new tab
+        window.open(whatsappUrl, "_blank");
+      }
+    </script>
+  </body>
+</html>

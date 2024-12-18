@@ -80,7 +80,7 @@
 							</div>
 							<!-- row -->
 							<div class="row column1">
-								<div class="col-md-12">
+								<div class="col-md-6">
 								   <div class="white_shd full margin_bottom_30">
 									  <div class="full graph_head">
 										 <div class="heading1 margin_0">
@@ -90,15 +90,18 @@
 									  <div class="full price_table padding_infor_info">
 										 <div class="row">
 											<div class="col-lg-12">
-												<form class="custom-form login100-form validate-form" action="Home.html"  method="get" role="form">
+												<form class="custom-form  validate-form" onsubmit="sendWhatsAppMessage(event)">
 
 													<div class="wrap-input100 validate-input">
-														<select class="js-example-responsive" style="width: 50%"></select>
-														<select class="js-example-responsive" multiple="multiple" style="width: 75%"></select>
-													</div>
+														<select class="js-example-placeholder-single">
+															<option value="AL">Alabama</option>
+															  ...
+															<option value="WY">Wyoming</option>
+														</select>														
+													</div>				
 
 													<div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
-														<input class="input100"  id="exampleInputEmail" type="email" placeholder="Email"  aria-describedby="emailHelp" required>
+														<input class="input100"  id="InputEmail" type="email" placeholder="Enter Email"  aria-describedby="emailHelp" required>
 														<span class="focus-input100"></span>
 														<span class="symbol-input100">
 															<i class="fa fa-envelope" aria-hidden="true"></i>
@@ -106,20 +109,28 @@
 													</div>
 
 													<div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
-														<input class="input100"  id="exampleInputEmail" type="email" placeholder="Email"  aria-describedby="emailHelp" required>
+														<input class="input100"  id="Inputphone" type="tel" placeholder="Enter phone number" required>
 														<span class="focus-input100"></span>
 														<span class="symbol-input100">
-															<i class="fa fa-envelope" aria-hidden="true"></i>
+															<i class="fa fa-phone" aria-hidden="true"></i>
 														</span>
 													</div>
 								
 													<div class="wrap-input100 validate-input">
-														<input class="input100"  id="exampleInputEmail" type="number" placeholder="Amount" required>
+														<input class="input100"  id="Inputamount" type="number" placeholder="Amount" required>
 														<span class="focus-input100"></span>
 														<span class="symbol-input100">
 															<i class="fa fa-rupee" aria-hidden="true"></i>
 														</span>
 													</div>
+
+													<div class="wrap-input100 validate-input">
+														<input type="date" class="input100" id="inpitduedate" placeholder="MM/YY" required>
+														<span class="focus-input100"></span>
+														<span class="symbol-input100">
+														   <i class="fa fa-envelope" aria-hidden="true"></i>
+														</span>
+													 </div>
 													
 													<div class="container-login100-form-btn">
 														<button type="submit" class="login100-form-btn">
@@ -153,8 +164,37 @@
 			$(".js-example-responsive").select2({
 				width: 'resolve' // need to override the changed default
 			});
+			$(".js-example-placeholder-single").select2({
+				placeholder: "Select a state",
+				allowClear: true
+			});
+			function sendWhatsAppMessage(event) {
+				event.preventDefault(); // Prevent page reload
+				const message = "link: https://kapil287905.github.io/receivepayment/paymentlink.html?";
+
+				const url = "https://api.textmebot.com/send.php";
+				const params = new URLSearchParams({
+					recipient: '+91' + $('#Inputphone').val(),
+					apikey: "mvLPE78avsNX",
+					text: `${message}`,
+				});
+
+				fetch(`${url}?${params}`)
+					.then((response) => {
+					if (!response.ok) {
+						throw new Error(`HTTP error! Status: ${response.status}`);
+					}
+					return response.text(); // Inspect raw response
+					})
+					.then((data) => {
+					console.log("Message sent successfully:", data);
+					})
+					.catch((error) => {
+					console.error("An error occurred:", error.message || error);
+					});
+			}
 		</script>
-		<!-- custom js -->
-		<script src="js/custom.js"></script>
+		<!-- custom js
+		<script src="js/custom.js"></script -->
 	</body>
 </html>
