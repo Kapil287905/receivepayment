@@ -1173,7 +1173,7 @@ a[data-toggle="collapse"] {
     font-weight: 600;
     position: relative;
     color: #15283c;
-    font-family: 'Raleway', sans-serif;
+    font-family: 'Poppins', sans-serif;
 }
 
 .time_form {
@@ -1504,7 +1504,8 @@ iframe {
   text-align: center;
   padding: 30px 30px 30px 30px;
   font-size: 3rem;
-  font-weight: bolder;
+  font-weight: 500;
+  color: #312486;
 }
 
 /*------------------------------------------------------------------
@@ -1687,7 +1688,7 @@ iframe {
 }
 
 .login100-form-btn {
-  font-family: Montserrat-Bold;
+  font-family: Poppins-Bold;
   font-size: 15px;
   line-height: 1.5;
   color: #fff;

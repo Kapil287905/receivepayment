@@ -116,6 +116,22 @@
 														</span>
 													</div>
 
+													<div class="wrap-input100 validate-input">
+														<input class="input100" id="inputpan" type="text" placeholder="PAN number" pattern="[A-Za-z]{5}[0-9]{4}[A-Za-z]"  aria-describedby="emailHelp" required>
+														<span class="focus-input100"></span>
+														<span class="symbol-input100">
+															<i class="fa fa-id-card" aria-hidden="true"></i>
+														</span>
+													</div>
+
+													<div class="wrap-input100 validate-input">
+														<input class="input100" id="inputgst" type="text" placeholder="GST number"  aria-describedby="emailHelp" required>
+														<span class="focus-input100"></span>
+														<span class="symbol-input100">
+															<i class="fa fa-id-card" aria-hidden="true"></i>
+														</span>
+													</div>
+
 													<div class="container-login100-form-btn">
 														<button type="submit" class="login100-form-btn">
 															Create
@@ -179,6 +195,31 @@
 			$(".js-example-responsive").select2({
 				width: 'resolve' // need to override the changed default
 			});
+
+			const inputBox = document.getElementById("inputpan")
+
+			inputBox.addEventListener("keydown", (event) => {
+				event.preventDefault();
+			
+				if (event.key == 'Backspace') {
+					inputBox.value = inputBox.value.substring(0, inputBox.value.length - 1)
+				}
+				
+				if (event.key.length == 1) {
+					const currentLength = inputBox.value.length
+					const alphaValid = currentLength < 5 || currentLength == 9
+					const numericValid = currentLength >= 5 && currentLength < 9
+				
+					if (alphaValid && event.key >= 'a' && event.key <= 'z' && event.ctrlKey == false) {
+						inputBox.value += event.key.toUpperCase()
+					} else if (alphaValid && event.key >= 'A' && event.key <= 'Z' && event.ctrlKey == false) {
+						inputBox.value += event.key
+					} else if (numericValid && event.key >= '0' && event.key <= '9' && event.ctrlKey == false) {
+						inputBox.value += event.key
+					}
+				}
+			})
+
 		</script>
 		<!-- custom js -->
 		<script src="js/custom.js"></script>

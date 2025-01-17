@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Send WhatsApp and Email</title>
+</head>
+<body>
+  <h2>Send Pay Now Message</h2>
+
+  <!-- Form to collect recipient info -->
+  <form id="messageForm">
+    <label for="recipient">Recipient's Phone Number (WhatsApp):</label>
+    <input type="text" id="recipient" name="recipient" placeholder="+919920201937" required />
+
+    <label for="email">Recipient's Email:</label>
+    <input type="email" id="email" name="email" placeholder="recipient@example.com" required />
+
+    <label for="amount">Amount:</label>
+    <input type="number" id="amount" name="amount" placeholder="100" required />
+
+    <button type="button" onclick="handleSend()">Send Message</button>
+  </form>
+
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@2.6.4/dist/email.min.js"></script>
+  <script>
+    // Initialize EmailJS with your User ID
+    emailjs.init("kapil_r_meghnani@hotmail.com");  // Replace with your actual EmailJS user ID
+
+    // Function that gets triggered on button click
+    function handleSend() {
+      const form = document.getElementById("messageForm");
+      const recipient = form.recipient.value.trim();
+      const email = form.email.value.trim();
+      const amount = form.amount.value.trim();
+
+      // Construct the WhatsApp message
+      const message = `*Pay Now*: https://kapil287905.github.io/receivepayment/paymentlink.html?amount=${amount}`;
+
+      // Call both functions: Send WhatsApp message and Send email
+      sendWhatsAppMessage(recipient, message, amount);
+      sendEmail(email, message);
+
+      // Clear form fields after sending
+      form.reset();
+    }
+
+    // Function to send WhatsApp message using TextMeBot API
+    function sendWhatsAppMessage(recipient, message, amount) {
+      const url = "https://api.textmebot.com/send.php";
+      const params = new URLSearchParams({
+        recipient: recipient,
+        apikey: "mvLPE78avsNX",  // Replace with your actual API key
+        text: message,
+        amount: amount,
+      });
+
+      fetch(`${url}?${params}`)
+        .then((response) => response.text())
+        .then((data) => {
+          console.log("WhatsApp message sent:", data);
+        })
+        .catch((error) => {
+          console.error("Error sending WhatsApp message:", error);
+        });
+    }
+
+    // Function to send an email using EmailJS
+    function sendEmail(recipientEmail, message) {
+      const emailParams = {
+        to_email: recipientEmail,
+        subject: "Pay Now Link",
+        message: message,
+      };
+
+      emailjs.send("YOUR_EMAILJS_SERVICE_ID", "YOUR_EMAILJS_TEMPLATE_ID", emailParams)
+        .then((response) => {
+          console.log("Email sent successfully:", response);
+        })
+        .catch((error) => {
+          console.error("Error sending email:", error);
+        });
+    }
+  </script>
+</body>
+</html>
