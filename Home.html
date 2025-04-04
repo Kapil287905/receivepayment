@@ -29,10 +29,7 @@
 						   </li>
 						   <li>
 							   <a href="receive.html"><i class="fa fa-money orange_color"></i> <span>Receive</span></a>
-						   </li>
-						   <li>
-							   <a href="profile.html"><i class="fa fa-user purple_color2"></i> <span>Profile</span></a>
-						   </li>				   
+						   </li>						  				   
 					   </ul>
 					</div>
 				 </nav>
@@ -54,8 +51,6 @@
 												<a class="dropdown-toggle" data-toggle="dropdown"><img class="img-responsive rounded-circle" src="images/user_img.png" alt="#" /><span class="name_user">John David</span></a>
 												<div class="dropdown-menu">
 													<a class="dropdown-item" href="profile.html">My Profile</a>
-													<a class="dropdown-item" href="settings.html">Settings</a>
-													<a class="dropdown-item" href="help.html">Help</a>
 													<a class="dropdown-item" href="#"><span>Log Out</span> <i class="fa fa-sign-out"></i></a>
 												</div>
 											</li>
@@ -153,11 +148,14 @@
 			</div>
 		</div>
 		<script src="js/jquery.min.js"></script>
-		<script src="js/bootstrap.js"></script>
+		<script src="js/bootstrap.min.js"></script>
 		<!-- nice scrollbar -->
 		<script src="js/perfect-scrollbar.min.js"></script>
 		<script>
 			var ps = new PerfectScrollbar('#sidebar');
+			$(".dropdown-toggle").click(function() {
+				$(this).next(".dropdown-menu").toggle();
+			});
 		</script>
 		<!-- custom js -->
 		<script src="js/custom.js"></script>
